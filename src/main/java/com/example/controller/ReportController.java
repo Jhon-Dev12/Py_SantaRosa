@@ -1,12 +1,11 @@
 package com.example.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import jakarta.servlet.http.HttpServletResponse;
 
-import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;

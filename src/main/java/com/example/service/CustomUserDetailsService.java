@@ -32,7 +32,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         String role;
         switch (usuario.getRol()) {
             case ADMIN -> role = "ADMIN"; // mapeo a ROLE_ADMIN
-            case MEDICO -> role = "MEDICO"; // mapeo a ROLE_MEDICO
+            case RECEPCIONISTA -> role = "RECEPCIONISTA"; // mapeo a ROLE_RECEPCIONISTA
+            case CAJERO -> role = "CAJERO";
             default -> throw new IllegalArgumentException("Rol desconocido");
         }
         System.out.println("Rol asignado: " + role);

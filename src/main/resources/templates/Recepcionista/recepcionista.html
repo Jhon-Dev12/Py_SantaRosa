@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Médico</title>
+</head>
+<body>
+<h2>Bienvenido al recepcionista</h2>
+<p>Solo accesible por usuarios con rol recep.</p>
+
+<form th:action="@{/usuarios/logout}" method="post">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+
+
+</body>
+</html>
+

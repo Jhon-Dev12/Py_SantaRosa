@@ -3,10 +3,8 @@ package com.example.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.example.Entity.Usuario;
 import com.example.service.UsuarioService;
@@ -43,13 +41,19 @@ public class UsuarioController {
     // Página para administrador
     @GetMapping("/admin/home")
     public String admin() {
-        return "admin"; // admin.html
+        return "Admin/admin"; // admin.html
     }
 
     // Página para médicos
-    @GetMapping("/medico/home")
-    public String medico() {
-        return "medico"; // medico.html
+    @GetMapping("/rcpsta/home")
+    public String recepcionista() {
+        return "Recepcionista/recepcionista"; // recpecionista.html
+    }
+    
+    
+    @GetMapping("/cajero/home")
+    public String cajero () {
+        return "Cajero/cajero"; // cajero.html
     }
     
 

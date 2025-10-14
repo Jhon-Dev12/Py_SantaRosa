@@ -2,7 +2,7 @@ package com.example.security;
 
 import java.io.IOException;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
+
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import jakarta.servlet.ServletException;
@@ -24,8 +24,11 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
                 .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
             redirectUrl = "/usuarios/admin/home";
         } else if (authentication.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("ROLE_MEDICO"))) {
-            redirectUrl = "/usuarios/medico/home";
+                .anyMatch(a -> a.getAuthority().equals("ROLE_RECEPCIONISTA"))) {
+            redirectUrl = "/usuarios/rcpsta/home";
+        }else if (authentication.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("ROLE_CAJERO"))) {
+            redirectUrl = "/usuarios/cajero/home";
         }
 
         System.out.println("Redirigiendo a: " + redirectUrl);
