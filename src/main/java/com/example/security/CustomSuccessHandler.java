@@ -21,7 +21,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         String redirectUrl = "/usuarios/login?error"; // fallback por seguridad
 
         if (authentication.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
+                .anyMatch(a -> a.getAuthority().equals("ROLE_ADMINISTRADOR"))) {
             redirectUrl = "/usuarios/admin/home";
         } else if (authentication.getAuthorities().stream()
                 .anyMatch(a -> a.getAuthority().equals("ROLE_RECEPCIONISTA"))) {

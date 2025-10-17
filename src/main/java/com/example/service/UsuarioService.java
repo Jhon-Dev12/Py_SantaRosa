@@ -24,7 +24,7 @@ public class UsuarioService {
     public Usuario registrarUsuario(String username, String password, Roles rol) {
         Usuario u = new Usuario();
         u.setUsername(username);
-        u.setPassword(passwordEncoder.encode(password));
+        u.setContrasenia(passwordEncoder.encode(password));
         u.setRol(rol);
         return usuarioRepository.save(u);
     }

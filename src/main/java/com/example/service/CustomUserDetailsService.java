@@ -31,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         // 3️⃣ Revisa el rol
         String role;
         switch (usuario.getRol()) {
-            case ADMIN -> role = "ADMIN"; // mapeo a ROLE_ADMIN
+            case ADMINISTRADOR -> role = "ADMINISTRADOR"; // mapeo a ROLE_ADMIN
             case RECEPCIONISTA -> role = "RECEPCIONISTA"; // mapeo a ROLE_RECEPCIONISTA
             case CAJERO -> role = "CAJERO";
             default -> throw new IllegalArgumentException("Rol desconocido");
@@ -41,7 +41,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         // 4️⃣ Devuelve UserDetails
         UserDetails userDetails = User.builder()
                 .username(usuario.getUsername())
-                .password(usuario.getPassword())
+                .password(usuario.getContrasenia())
                 .roles(role) // Spring agregará ROLE_ automáticamente
                 .build();
 
