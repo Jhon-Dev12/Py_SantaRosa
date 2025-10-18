@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="~{Cajero/cajeroLayout}">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <title>Cajero</title>
+
 </head>
 <body>
-<h1> Hola cajera</h1>
-
-<form th:action="@{/usuarios/logout}" method="post">
-        <button type="submit">Cerrar sesión</button>
-    </form>
-    
-    
-    <h1>HOLA GENTE</h1>
-
+	<section layout:fragment="contenido">
+		<h1>Hola Otra vez </h1>
+	</section>
 </body>
 </html>
+
