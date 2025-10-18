@@ -22,7 +22,7 @@ public class UsuarioApiController {
         Roles rolEnum = Roles.valueOf(request.getRol().name()); // si request.getRol() es enum
         return usuarioService.registrarUsuario(
             request.getUsername(),
-            request.getPassword(),
+            request.getContrasenia(),
             rolEnum
         );
     }

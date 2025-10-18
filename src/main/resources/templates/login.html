@@ -8,6 +8,7 @@
 <form action="/usuarios/login" method="post">
     <input type="text" name="username" placeholder="Usuario" required>
     <input type="password" name="password" placeholder="Contraseña" required>
+	<a class="nav-link" th:href="@{/usuarios/cambiarContrasena}">Cambiar contraseña</a>
     <button type="submit">Ingresar</button>
 </form>
 <div th:if="${param.logout}">

@@ -1,7 +1,7 @@
 package com.example.Entity;
 
 public enum Roles {
-    ADMIN,
+    ADMINISTRADOR,
     RECEPCIONISTA,
     CAJERO
 }
