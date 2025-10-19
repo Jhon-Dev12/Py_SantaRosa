@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.Entity.Usuario;
+import com.example.entity.Usuario;
 import com.example.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
