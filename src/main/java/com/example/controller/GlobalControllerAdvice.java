@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.User; // CORRECTO
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.example.Entity.Usuario;
+import com.example.entity.Usuario;
 import com.example.repository.UsuarioRepository;
 
 @ControllerAdvice
