@@ -3,10 +3,11 @@ package com.example.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import com.example.Entity.Usuario;
+import com.example.entity.Usuario;
 import com.example.service.UsuarioService;
 
 @Controller
@@ -25,12 +26,7 @@ public class UsuarioController {
         return "index"; // index.html
     }
 
-    // Formulario de registro
-    @GetMapping("/registro")
-    public String mostrarFormulario(Model model) {
-        model.addAttribute("usuario", new Usuario());
-        return "registro"; // registro.html
-    }
+  
 
     // Página de login
     @GetMapping("/login")
@@ -55,6 +51,31 @@ public class UsuarioController {
     public String cajero () {
         return "Cajero/cajero"; // cajero.html
     }
+    
+    
+    
+    // Formulario de registro
+    @GetMapping("/registro")
+    public String mostrarFormulario(Model model) {
+        model.addAttribute("usuario", new Usuario());
+        return "Admin/registro"; // registro.html
+    }
+ 
+
+    // 🔹 Procesar formulario de registro
+    @PostMapping("/admin/registro")
+    public String registrarUsuario(@ModelAttribute Usuario usuario, Model model) {
+        usuarioService.registrarUsuario(usuario);
+        model.addAttribute("mensaje", "Usuario registrado con éxito.");
+        return "redirect:/usuarios/login";
+    }
+
+    // 🔹 Mostrar lista de usuarios (si lo necesitas)
+//    @GetMapping("/listar")
+//    public String listarUsuarios(Model model) {
+//        model.addAttribute("usuarios", usuarioService.listarUsuarios());
+//        return "usuarios"; // Vista usuarios.html
+//    }
     
 
 
