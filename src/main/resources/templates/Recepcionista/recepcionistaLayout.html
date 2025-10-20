@@ -90,7 +90,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" th:href="@{/usuarios/rcpsta/home}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/citas/lista}">Citas</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/pacientes/lista}">Pacientes</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/recepcionista/paciente/listar}">Pacientes</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/citas/reporte}">Reportes</a></li>
             </ul>
 
@@ -98,7 +98,7 @@
             <div class="d-flex align-items-center ms-auto">
                 <div class="user-info">
                     <img th:src="${usuarioActual.imgPerfil != null} ? @{/images/{file}(file=${usuarioActual.imgPerfil})} : @{/images/default-user.jpg}" 
-                         alt="Usuario">
+                         alt="Usuario" >
                     <div class="text-end">
                         <strong th:text="${usuarioActual.nombres}">Nombre Usuario</strong> | 
                         <small th:text="${usuarioActual.rol}">ROL</small>
