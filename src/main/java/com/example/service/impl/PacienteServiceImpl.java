@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Entity.Paciente;
+import com.example.entity.Paciente;
 import com.example.repository.PacienteRepository;
 import com.example.service.PacienteService;
 

@@ -2,7 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
-import com.example.Entity.Paciente;
+import com.example.entity.Paciente;
 
 public interface PacienteService {
 	
