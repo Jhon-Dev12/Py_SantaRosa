@@ -44,7 +44,7 @@ public class HorarioController {
         List<Medico> listaMedicos = medicoService.listarTodoMedico();
         model.addAttribute("listaMedicos", listaMedicos);
 
-        return "horario/gestionarHorarios";
+        return "Admin/horario/gestionarHorarios";
     }
 
 
@@ -57,21 +57,27 @@ public class HorarioController {
 		return medicoService.buscarMedicoPorNombre(nombre);
 	}
 
-    @PostMapping("/registrar")
-    public String registrarHorario(@ModelAttribute Horario horario, RedirectAttributes redirect) {
-        try {
-            if (horario.getIdHorario() == null) {
-                horarioService.registrarHorario(horario);
-                redirect.addFlashAttribute("success", "Horario registrado correctamente");
-            } else {
-                horarioService.editarHorario(horario);
-                redirect.addFlashAttribute("success", "Horario actualizado correctamente");
-            }
-        } catch (Exception e) {
-            redirect.addFlashAttribute("error", "Error al registrar o actualizar el horario");
-        }
-        return "redirect:/gestionarHorarios?idMedico=" + horario.getMedico().getIdMedico();
-    }
+	@PostMapping("/registrar")
+	public String registrarHorario(@ModelAttribute Horario horario, RedirectAttributes redirect) {
+	    try {
+	        if (horario.getMedico() == null || horario.getMedico().getIdMedico() == null) {
+	            redirect.addFlashAttribute("error", "Debe seleccionar un médico antes de registrar un horario.");
+	            return "redirect:/gestionarHorarios";
+	        }
+
+	        if (horario.getIdHorario() == null) {
+	            horarioService.registrarHorario(horario);
+	            redirect.addFlashAttribute("success", "Horario registrado correctamente.");
+	        } else {
+	            horarioService.editarHorario(horario);
+	            redirect.addFlashAttribute("success", "Horario actualizado correctamente.");
+	        }
+	    } catch (Exception e) {
+	        redirect.addFlashAttribute("error", "Error al registrar o actualizar el horario.");
+	    }
+	    return "redirect:/gestionarHorarios?idMedico=" + horario.getMedico().getIdMedico();
+	}
+
 
     @GetMapping("/eliminar/{id}")
     public String eliminarHorario(@PathVariable Integer id, @RequestParam Integer idMedico, RedirectAttributes redirect) {
