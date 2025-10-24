@@ -10,5 +10,12 @@ import com.example.entity.Medico;
 @Repository
 public interface MedicoRepository extends JpaRepository<Medico, Integer> {
 
-     List<Medico> findByNombresStartingWithIgnoreCase(String nombre);
+    List<Medico> findByApellidosContainingIgnoreCase(String apellidos);
+
+    boolean existsByDni(String dni);
+    boolean existsByNroColegiatura(String nroColegiatura);
+
+    // Obtener el último número de colegiatura
+    @Query("SELECT MAX(m.nroColegiatura) FROM Medico m")
+    String findUltimoNroColegiatura();
 }

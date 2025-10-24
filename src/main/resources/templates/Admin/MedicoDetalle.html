@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Admin/adminLayout}">
+<body>
+<section layout:fragment="contenido" class="container mt-4">
+    <h2 class="text-center mb-4">Detalle del Médico</h2>
+
+		<div class="card p-4 shadow-sm">
+			<p><strong>ID:</strong> <span th:text="${medico.id}"></span></p>
+			<p><strong>Nombre:</strong> <span th:text="${medico.nombres}"></span></p>
+			<p><strong>Apellido:</strong> <span th:text="${medico.apellidos}"></span></p>
+	        <p><strong>Especialidad:</strong> <span th:text="${medico.especialidad.nombre}"></span></p>
+	        <p><strong>Nro. Colegiatura:</strong> <span th:text="${medico.nroColegiatura}"></span></p> 
+	        <p><strong>Teléfono:</strong> <span th:text="${medico.telefono}"></span></p>
+			<p><strong>DNI:</strong> <span th:text="${medico.dni}"></span></p>
+
+			<div class="text-end mt-3">
+				<a th:href="@{/medicos/lista}" class="btn btn-secondary">Volver</a>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

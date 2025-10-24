@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Admin/adminLayout}">
+<body>
+<section layout:fragment="contenido" class="container mt-4">
+
+    <h2 class="text-center mb-4">Lista de Médicos</h2>
+
+    <div th:if="${msg}" class="alert alert-success text-center" th:text="${msg}"></div>
+    <div th:if="${err}" class="alert alert-danger text-center" th:text="${err}"></div>
+
+    <div class="text-end mb-3">
+        <a th:href="@{/medicos/nuevo}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Nuevo Médico
+        </a>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-light text-center">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Especialidad</th>
+                <th>Numero de Colegiatura</th>
+                <th>Teléfono</th>
+                <th>DNI</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr th:each="medico : ${listaMedicos}">
+                <td th:text="${medico.id}"></td>
+                <td th:text="${medico.nombres}"></td>
+                <td th:text="${medico.apellidos}"></td>
+                <td th:text="${medico.especialidad.nombre}"></td>
+                <td th:text="${medico.nroColegiatura}"></td>
+                <td th:text="${medico.telefono}"></td>
+                <td th:text="${medico.dni}"></td>
+                <td>
+                    <a th:href="@{/medicos/detalle/{id}(id=${medico.id})}" class="btn btn-info btn-sm">Detalle</a>
+                    <a th:href="@{/medicos/editar/{id}(id=${medico.id})}" class="btn btn-warning btn-sm">Editar</a>
+                    <a th:href="@{/medicos/eliminar/{id}(id=${medico.id})}" 
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('¿Seguro que deseas eliminar este médico?');">
+                       Eliminar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+</body>
+</html>
